@@ -92,10 +92,10 @@ printf "\nPATH=\"$(composer config -g home 2>/dev/null)/vendor/bin:\$PATH\"\n" |
 
 # Set Some PHP CLI Settings
 
-sudo sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/7.2/cli/php.ini
-sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.2/cli/php.ini
-sudo sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.2/cli/php.ini
-sudo sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.2/cli/php.ini
+sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/7.2/cli/php.ini
+sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.2/cli/php.ini
+sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.2/cli/php.ini
+sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.2/cli/php.ini
 
 # Install Nginx & PHP-FPM
 
@@ -125,7 +125,7 @@ printf "curl.cainfo = /etc/ssl/certs/ca-certificates.crt\n" | tee -a /etc/php/7.
 
 # Disable XDebug On The CLI
 
-sudo phpdismod -s cli xdebug
+phpdismod -s cli xdebug
 
 # Setup Some fastcgi_params Options
 
@@ -170,9 +170,9 @@ apt-get install php7.2-phalcon
 
 # Remove apache2 form php
 
-sudo service apache2 stop
+service apache2 stop
 update-rc.d -f apache2 remove
-sudo apt-get remove apache2
+apt-get remove apache2
 
 # Restart service
 
