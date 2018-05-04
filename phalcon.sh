@@ -166,7 +166,7 @@ sed -i "s/;listen\.mode.*/listen.mode = 0666/" /etc/php/7.2/fpm/pool.d/www.conf
 # Install Phalcon
 
 curl -s https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh | bash
-apt-get install php7.2-phalcon
+apt-get install -y php7.2-phalcon
 
 # Remove apache2 form php
 
